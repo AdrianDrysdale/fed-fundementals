@@ -1,0 +1,137 @@
+.nav-h2 {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  margin: 0 48px;
+
+
+}
+
+.nav-h2 nav {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+
+.nav-h2 svg {
+  padding-right: 16px;
+  border-right: var(--grey-500) 1px solid;
+  margin-right: 2px;
+}
+
+.nav-h2 ul {
+  display: inline-flex;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+.nav-h2 ul li {
+  font-size: 1rem;
+  font-weight: var(--medium);
+  color: var(--navy-900);
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  display: flex;
+  align-items: center;
+}
+
+
+.nav-h2 a {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: var(--medium);
+  color: var(--navy-900);
+  padding: 8px 14px;
+}
+
+.nav-h2 ul li.nav-h2-h1-selected a {
+  font-size: 1.25rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.nav-h2 ul li.nav-h2-active {
+  border-bottom: var(--teal-900) 4px solid;
+}
+
+.nav-h2 a:hover {
+  background-color: var(--grey-300);
+  border-radius: 8px;
+}
+
+
+.nav-h3 {
+  height: 48px;
+  background-color: var(--navy-800);
+  display: flex;
+}
+
+.nav-h3 ul {
+  display: inline-flex;
+  padding: 0;
+  margin: 0 46px;
+}
+
+.nav-h3 ul li {
+  font-size: 1rem;
+  font-weight: var(--medium);
+  display: flex;
+  align-items: center;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+}
+
+.nav-h3 a {
+  text-decoration: none;
+  color: var(--white);
+  padding: 8px 16px;
+}
+
+.nav-h3 a:hover {
+  background-color: var(--navy-600);
+  border-radius: 8px;
+}
+
+.nav-h3 ul li.nav-h3-active {
+  border-bottom: var(--teal-900) 4px solid;
+}
+.account {
+  align-items: center;
+  margin-left: auto;
+  display: flex;
+  font-size: 1rem;
+  font-weight: var(--medium);
+}
+
+.website {
+  margin-right: 10px;
+}
+
+.user {
+  background-color: var(--grey-300);
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  position: relative;
+}
+
+.user div {
+  padding: 3px 6px;
+  position: absolute;
+  top: -10px;
+  right:-10px;
+  background-color: var(--navy-800);
+  border-radius: 50%;
+  color: var(--white);
+  font-size: 0.625rem;
+  font-weight: bold;
+  border: var(--white) 2px solid;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}

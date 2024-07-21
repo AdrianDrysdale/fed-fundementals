@@ -1,0 +1,37 @@
+footer {
+  background-color: var(--white);
+  height: 80px;
+  padding: 0 46px;
+  margin-top: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  & svg {
+    height: 32px;
+  }
+
+  & a {
+    color: var(--grey-600);
+    text-decoration: none;
+  }
+
+  & a:hover {
+    text-decoration: underline;
+  }
+
+  & p {
+    font-size: 0.75rem;
+    font-weight: var(--medium);
+    color: var(--grey-900);
+  }
+
+  & ul {
+    display: flex;
+  }
+
+  & li {
+    padding: 0 16px;
+    font-size: 0.875rem;
+  }
+}
