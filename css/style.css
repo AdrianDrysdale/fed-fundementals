@@ -41,6 +41,22 @@ main {
   grid-template-columns: repeat( 12, 1fr);
   grid-gap: 0 24px;
   align-items: center;
+
+  @media (max-width: 1439px) {
+    margin: 0 40px;
+  }
+
+  @media (max-width: 1239px) {
+    margin: 0 36px;
+  }
+
+  @media (max-width: 904px) {
+    margin: 0 32px;
+  }
+
+  @media (max-width: 599px) {
+    margin: 0 16px;
+  }
 }
 
 .card {
@@ -50,7 +66,6 @@ main {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 
 }
-
 
 .options {
   display: flex;
@@ -133,7 +148,8 @@ button svg {
 }
 
 table {
-  width: 100%;
+  table-layout:fixed;
+  width:100%;
   margin: 0;
   border-collapse: collapse;
 }
