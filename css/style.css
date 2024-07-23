@@ -15,6 +15,10 @@
   --roboto:"Roboto", sans-serif;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 html, body {
   max-width: 100%;
   padding: 0;
@@ -152,20 +156,36 @@ table {
   width:100%;
   margin: 0;
   border-collapse: collapse;
+
+  @media (max-width: 599px) {
+    font-size: 0.75rem;
+  }
 }
 
 th {
   text-align: left;
   padding: 0 16px;
   height: 48px;
+
+  @media (max-width: 599px) {
+     padding: 0 8px;
+  }
 }
 
 th:last-child {
   text-align: right;
   padding-right: 24px;
+
+  @media (max-width: 599px) {
+    padding: 0 8px;
+  }
 }
 th:first-child {
   padding-left: 24px;
+
+  @media (max-width: 599px) {
+    display: none;
+  }
 }
 
 tr {
@@ -179,15 +199,27 @@ tr:nth-child(even) {
 td {
   text-align: left;
   padding: 0 16px;
+
+  @media (max-width: 599px) {
+    padding: 0 8px;
+  }
 }
 
 td:first-child {
   padding-left: 24px;
+
+  @media (max-width: 599px) {
+    display: none;
+  }
 }
 
 td:last-child {
   text-align: right;
   padding-right: 24px;
+
+  @media (max-width: 599px) {
+    padding: 0 8px;
+  }
 }
 
 td img {
@@ -200,14 +232,14 @@ td a {
   text-decoration: none;
   color: var(--blue-500);
   font-size: 1rem;
+
+  @media (max-width: 599px) {
+    font-size: 0.75rem;
+  }
 }
 
 td a:hover {
   text-decoration: underline;
-}
-
-* {
-  box-sizing: border-box;
 }
 
 .pagination {
@@ -235,6 +267,10 @@ td a:hover {
   & input {
     font-size: 1rem;
     text-align: center;
+  }
+
+  @media (max-width: 904px) {
+    justify-content: center;
   }
 }
 
