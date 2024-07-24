@@ -66,11 +66,11 @@
   }
 
   @media (max-width: 904px) {
-    margin: 0 32px;
+    margin: 0 2em;
   }
 
   @media (max-width: 599px) {
-    margin: 0 16px;
+    margin: 0 1em;
 
     & svg {
       display: none;

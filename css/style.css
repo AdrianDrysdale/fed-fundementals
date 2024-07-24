@@ -32,10 +32,14 @@ ul {
 }
 
 h2 {
-  font-size: 1.75em;
+  font-size: 1.75rem;
   font-weight: var(--medium);
   color: var(--grey-900);
   line-height: 36px;
+
+  @media (max-width: 599px) {
+    font-size: 1.5rem;
+  }
 }
 
 
@@ -75,6 +79,10 @@ main {
   display: flex;
   justify-content: flex-end;
   grid-column: 10 / span 3;
+
+  & .tertiary {
+    margin-right: 0.5em;
+  }
 }
 
 .totals {
@@ -103,6 +111,11 @@ button {
   display: inline-flex;
   align-items: center;
   line-height: 22px;
+
+  @media (max-width: 599px) {
+    font-size: 0.75em;
+    line-height: 16px;
+  }
 }
 
 button svg {
@@ -182,10 +195,15 @@ th:last-child {
 }
 th:first-child {
   padding-left: 24px;
+  width: 5%;
 
-  @media (max-width: 599px) {
+  @media (max-width: 1239px) {
     display: none;
   }
+}
+
+th:nth-child(2) {
+  width: 45%;
 }
 
 tr {
@@ -208,7 +226,7 @@ td {
 td:first-child {
   padding-left: 24px;
 
-  @media (max-width: 599px) {
+  @media (max-width: 1239px) {
     display: none;
   }
 }
@@ -267,6 +285,11 @@ td a:hover {
   & input {
     font-size: 1rem;
     text-align: center;
+  }
+
+  & div.square:hover {
+    background-color: var(--grey-100);
+    border: 1px solid var(--grey-300);
   }
 
   @media (max-width: 904px) {
