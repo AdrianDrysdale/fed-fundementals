@@ -78,7 +78,7 @@
 
     & ul {
       & a {
-        padding: 8px 2px;
+        padding: 1em 2px;
       }
     }
   }
@@ -127,12 +127,12 @@
   & a {
     text-decoration: none;
     color: var(--white);
-    padding: 8px 16px;
+    padding: 0.5em 1em;
   }
 
   & a:hover {
     background-color: var(--navy-600);
-    border-radius: 8px;
+    border-radius: 05em;
   }
 }
 

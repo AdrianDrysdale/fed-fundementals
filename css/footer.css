@@ -27,11 +27,11 @@ footer {
     flex-direction: row;
     padding: 0;
     margin: 0;
-  }
 
-  & li {
-    padding: 0 1rem;
-    font-size: 0.875rem;
+    & li {
+      padding: 0 1rem;
+      font-size: 0.875rem;
+    }
   }
 
   @media (max-width: 1439px) {

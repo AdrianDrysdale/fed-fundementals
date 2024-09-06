@@ -176,6 +176,7 @@ table {
 }
 
 th {
+  font-weight: var(--medium);
   text-align: left;
   padding: 0 16px;
   height: 48px;
@@ -243,7 +244,7 @@ td:last-child {
 td img {
   width: 40px;
   height: 40px;
-  border: 1px solid var(--grey-500);
+  border: 1px solid #707070;
 }
 
 td a {
@@ -298,10 +299,9 @@ td a:hover {
 }
 
 .filters {
-  margin: 0 24px;
+  margin: 21px 24px 0;
   display: flex;
   align-items: center;
-  height: 72px;
 }
 
 .square {
