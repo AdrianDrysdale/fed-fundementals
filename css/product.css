@@ -40,90 +40,91 @@ table {
   @media (max-width: 599px) {
     font-size: 0.75rem;
   }
-}
 
-th {
-  font-weight: var(--medium);
-  text-align: left;
-  padding: 0 16px;
-  height: 48px;
+  & th {
+    font-weight: var(--medium);
+    text-align: left;
+    padding: 0 16px;
+    height: 48px;
 
-  @media (max-width: 599px) {
-    padding: 0 8px;
+    @media (max-width: 599px) {
+      padding: 0 8px;
+    }
   }
-}
 
-th:last-child {
-  text-align: right;
-  padding-right: 24px;
+  & th:last-child {
+    text-align: right;
+    padding-right: 24px;
 
-  @media (max-width: 599px) {
-    padding: 0 8px;
+    @media (max-width: 599px) {
+      padding: 0 8px;
+    }
   }
-}
-th:first-child {
-  padding-left: 24px;
-  width: 5%;
 
-  @media (max-width: 1239px) {
-    display: none;
+  & th:first-child {
+    padding-left: 24px;
+    width: 5%;
+
+    @media (max-width: 1239px) {
+      display: none;
+    }
   }
-}
 
-th:nth-child(2) {
-  width: 45%;
-}
-
-tr {
-  height: 56px;
-}
-
-tr:nth-child(even) {
-  background-color: var(--grey-100);
-}
-
-td {
-  text-align: left;
-  padding: 0 16px;
-
-  @media (max-width: 599px) {
-    padding: 0 8px;
+  & th:nth-child(2) {
+    width: 45%;
   }
-}
 
-td:first-child {
-  padding-left: 24px;
-
-  @media (max-width: 1239px) {
-    display: none;
+  & tr {
+    height: 56px;
   }
-}
 
-td:last-child {
-  text-align: right;
-  padding-right: 24px;
-
-  @media (max-width: 599px) {
-    padding: 0 8px;
+  & tr:nth-child(even) {
+    background-color: var(--grey-100);
   }
-}
 
-td img {
-  width: 40px;
-  height: 40px;
-  border: 1px solid #707070;
-}
+  & td {
+    text-align: left;
+    padding: 0 16px;
 
-td a {
-  text-decoration: none;
-  color: var(--blue-500);
-  font-size: 1rem;
+    @media (max-width: 599px) {
+      padding: 0 8px;
+    }
 
-  @media (max-width: 599px) {
-    font-size: 0.75rem;
+    & img {
+      width: 40px;
+      height: 40px;
+      border: 1px solid #707070;
+    }
+
+    & a {
+      text-decoration: none;
+      color: var(--blue-500);
+      font-size: 1rem;
+
+      @media (max-width: 599px) {
+        font-size: 0.75rem;
+      }
+    }
   }
-}
 
-td a:hover {
-  text-decoration: underline;
+  & td:first-child {
+    padding-left: 24px;
+
+    @media (max-width: 1239px) {
+      display: none;
+    }
+  }
+
+  & td:last-child {
+    text-align: right;
+    padding-right: 24px;
+
+    @media (max-width: 599px) {
+      padding: 0 8px;
+    }
+  }
+
+  & td a:hover {
+    text-decoration: underline;
+  }
 }
