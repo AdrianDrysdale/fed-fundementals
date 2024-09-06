@@ -1,0 +1,129 @@
+
+.options {
+  display: flex;
+  justify-content: flex-end;
+  grid-column: 10 / span 3;
+
+  & button.tertiary {
+    margin-right: 0.5em;
+  }
+}
+
+.card {
+  grid-column:  span 12;
+  background-color: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+  & .filters {
+    margin: 21px 24px 0;
+    display: flex;
+    align-items: center;
+
+    & .totals {
+      font-weight: var(--medium);
+      margin-left: auto;
+
+      & span {
+        font-weight: normal;
+      }
+    }
+  }
+}
+
+table {
+  table-layout:fixed;
+  width:100%;
+  margin: 0;
+  border-collapse: collapse;
+
+  @media (max-width: 599px) {
+    font-size: 0.75rem;
+  }
+}
+
+th {
+  font-weight: var(--medium);
+  text-align: left;
+  padding: 0 16px;
+  height: 48px;
+
+  @media (max-width: 599px) {
+    padding: 0 8px;
+  }
+}
+
+th:last-child {
+  text-align: right;
+  padding-right: 24px;
+
+  @media (max-width: 599px) {
+    padding: 0 8px;
+  }
+}
+th:first-child {
+  padding-left: 24px;
+  width: 5%;
+
+  @media (max-width: 1239px) {
+    display: none;
+  }
+}
+
+th:nth-child(2) {
+  width: 45%;
+}
+
+tr {
+  height: 56px;
+}
+
+tr:nth-child(even) {
+  background-color: var(--grey-100);
+}
+
+td {
+  text-align: left;
+  padding: 0 16px;
+
+  @media (max-width: 599px) {
+    padding: 0 8px;
+  }
+}
+
+td:first-child {
+  padding-left: 24px;
+
+  @media (max-width: 1239px) {
+    display: none;
+  }
+}
+
+td:last-child {
+  text-align: right;
+  padding-right: 24px;
+
+  @media (max-width: 599px) {
+    padding: 0 8px;
+  }
+}
+
+td img {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #707070;
+}
+
+td a {
+  text-decoration: none;
+  color: var(--blue-500);
+  font-size: 1rem;
+
+  @media (max-width: 599px) {
+    font-size: 0.75rem;
+  }
+}
+
+td a:hover {
+  text-decoration: underline;
+}
