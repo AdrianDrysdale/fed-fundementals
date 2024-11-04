@@ -12,7 +12,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <script src="js/app.js"></script>
   </head>
   <body>
   <header>
@@ -67,7 +66,34 @@
         <button class="secondary"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-list-tree" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6h11" /><path d="M12 12h8" /><path d="M15 18h5" /><path d="M5 6v.01" /><path d="M8 12v.01" /><path d="M11 18v.01" /></svg>Filters</button>
         <div class="totals"></div>
       </div>
-      <table id="table"></table>
+      <div id="applied-filters"></div>
+      <table>
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Title</th>
+            <th>
+              Product ID
+              <svg  xmlns="http://www.w3.org/2000/svg"  width="16"  height="16"  viewBox="0 0 20 20"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-narrow-down">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M12 5l0 14" />
+                <path d="M16 15l-4 4" />
+                <path d="M8 15l4 4" />
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg"  width="16"  height="16"  viewBox="0 0 20 20"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-narrow-up">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M12 5l0 14" />
+                <path d="M16 9l-4 -4" />
+                <path d="M8 9l4 -4" />
+              </svg>
+            </th>
+            <th>Category</th>
+            <th>Rating</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
       <div class="pagination">
         <div class="square first">
           <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left-pipe" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#898989" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -125,5 +151,21 @@
       </ul>
       <p>&copy; Visualsoft 2024</p>
     </footer>
+    <div id="filters-modal" class="modal">
+      <div class="modal-content">
+        <div class="filter-header">
+          <p>Filters</p>
+          <span id="close-filters">&times;</span>
+        </div>
+        <div class="filter-middle">
+          <p>Category</p>
+          <div id="filter-list"></div>
+        </div>
+        <div class="filter-footer">
+          <button class=primary">Apply filters</button>
+        </div>
+      </div>
+    </div>
   </body>
+  <script src="js/app.js"></script>
 </html>

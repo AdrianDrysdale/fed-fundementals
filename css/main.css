@@ -188,4 +188,54 @@ button:hover {
   border: 1px solid var(--grey-300);
 }
 
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+  position: fixed;
+  right: 0;
+  margin: auto;
+  width: 25%;
+  height: 100%;
+  background-color: white;;
+}
+
+.filter-header {
+  height: 10%;
+}
+
+.filter-middle {
+  height: 80%;
+  border-bottom: 1px solid var(--navy-800);
+}
+
+.filter-footer {
+  height: 8%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & button {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+}
+
+.applied-filter {
+  display: flex;
+  align-items: center;
+}
+
 
