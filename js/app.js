@@ -1,8 +1,13 @@
-function ucFirst(word) {
-  return word.charAt(0).toUpperCase() + word.slice(1);
-}
-
 function renderFilters() {
+
+  let modal = document.getElementById("filters-modal");
+  let filterList = document.getElementById('filter-list')
+
+  if (document.getElementById('filter-list').innerHTML) {
+    modal.style.display = "block";
+    return;
+  }
+
   fetch('https://fakestoreapi.com/products/categories')
     .then(res => res.json())
     .then(categories => {
@@ -10,16 +15,20 @@ function renderFilters() {
       let filters = '<ul>';
 
       categories.forEach((category) => {
-        filters += `<li><input type="checkbox" name="filters" value="${category}" />${ucFirst(category)}</li>`;
+        filters += `
+          <li>
+            <label class="checkbox">
+              <input onclick="displayFilterButton()" type="checkbox" name="filters" value="${category}" />
+              ${ucFirst(category)}
+              <span class="checkmark" />
+            </label>
+          </li>
+        `;
       });
 
       document.getElementById('filter-list').innerHTML = filters + '</ul>';
 
-      let modal = document.getElementById("filters-modal");
-
-      document.getElementById("close-filters").onclick = function () {
-        modal.style.display = "none";
-      }
+      document.getElementById("close-filters").onclick = () => modal.style.display = "none";
 
       window.onclick = function (event) {
         if (event.target === modal) {
@@ -29,19 +38,38 @@ function renderFilters() {
 
       modal.style.display = "block";
     });
+
+  document.querySelector('.filter-footer button').onclick = () => applyFilters();
 }
 
+
+function displayFilterButton() {
+
+  const filters = document.getElementsByName('filters');
+  const applyFiltersButton = document.querySelector(".filter-footer button");
+
+  let buttonDisabled = true;
+
+  for (const filter of filters) {
+    if (filter.checked) {
+      buttonDisabled = false;
+      break;
+    }
+  }
+
+  applyFiltersButton.disabled = buttonDisabled;
+  applyFiltersButton.classList.toggle("primary", !buttonDisabled);
+}
+
+
 function applyFilters() {
+
   const filters = document.getElementsByName('filters');
 
-  for (let i = 0; i < filters.length; i++) {
-
-    const filter = filters[i];
-
+  for (const filter of filters) {
     if (filter.checked) {
       getProducts(1, 'asc', filter.value);
       renderAppliedFilter(filter.value);
-      break;
     }
   }
 
@@ -49,19 +77,23 @@ function applyFilters() {
 }
 
 function renderAppliedFilter(selectedFilter) {
-  document.getElementById("applied-filters").innerHTML = `
-    <div class="applied-filter">
-      <p>Category: ${ucFirst(selectedFilter)}</p>
-      <span class="clear-filter">&times;</span>
+  document.getElementById("filter-chips").innerHTML += `
+    <div class="chip">
+      <p>Category: <span class="categorized-chip">${ucFirst(selectedFilter)}</span></p>
+      <span class="clear-filter">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-x">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M18 6l-12 12" />
+            <path d="M6 6l12 12" />
+          </svg>
+      </span>
     </div>`;
 
-  document.querySelector(".clear-filter").onclick = function () {
-    clearFilters();
-  }
+  document.querySelector(".clear-filter").onclick = () => clearFilters();
 }
 
 function clearFilters() {
-  document.getElementById("applied-filters").innerHTML = '';
+  document.getElementById("filter-chips").innerHTML = '';
   getProducts();
 }
 
@@ -84,12 +116,13 @@ function getProducts(page = 1, sort = 'asc', category = '') {
     .then(products => {
 
       let maxPages = Math.ceil(products.length / limit)
-      let from = page * limit - (limit - 1)
-      let too = page * limit
 
       if (page > maxPages) {
         page = maxPages
       }
+
+      let from = page * limit - (limit - 1)
+      let too = page * limit
 
       if (too > products.length) {
         too = products.length
@@ -127,13 +160,13 @@ function getProducts(page = 1, sort = 'asc', category = '') {
         arrowDown.style.display = 'none'
       }
 
-      arrowDown.onclick = function () {
+      arrowDown.onclick = () => {
         arrowDown.style.display = 'none'
         arrowUp.style.display = 'inline'
         getProducts(1, 'desc', category)
       }
 
-      arrowUp.onclick = function () {
+      arrowUp.onclick = () => {
         arrowUp.style.display = 'none'
         arrowDown.style.display = 'inline'
         getProducts(1, 'asc', category)
@@ -142,50 +175,39 @@ function getProducts(page = 1, sort = 'asc', category = '') {
 }
 
 function buildPagination(page, maxPages, sort, category) {
-  document.getElementsByClassName('first')[0].classList.remove('grey-square')
-  document.getElementsByClassName('previous')[0].classList.remove('grey-square')
-  document.getElementsByClassName('last')[0].classList.remove('grey-square')
-  document.getElementsByClassName('next')[0].classList.remove('grey-square')
+
+  let first = document.querySelector('.first');
+  let next = document.querySelector('.next');
+  let last = document.querySelector('.last');
+  let previous = document.querySelector('.previous');
+
+  first.classList.remove('grey-square');
+  previous.classList.remove('grey-square');
+  last.classList.remove('grey-square');
+  next.classList.remove('grey-square');
 
   if (page === 1) {
-    document.getElementsByClassName('first')[0].classList.add('grey-square')
-    document.getElementsByClassName('previous')[0].classList.add('grey-square')
+    first.classList.add('grey-square');
+    previous.classList.add('grey-square');
   }
 
   if (page === maxPages) {
-    document.getElementsByClassName('last')[0].classList.add('grey-square')
-    document.getElementsByClassName('next')[0].classList.add('grey-square')
+    last.classList.add('grey-square');
+    next.classList.add('grey-square');
   }
 
-  if (page !== maxPages) {
-    document.querySelector('.next').onclick = function () {
-      getProducts(page + 1, sort, category)
-    };
-
-    document.querySelector('.last').onclick = function () {
-      getProducts(maxPages, sort, category)
-    };
-  }
-
-  document.querySelector('.previous').onclick = function () {
-    getProducts(page - 1, sort, category)
-  };
-
-  document.querySelector('.first').onclick = function () {
-    getProducts(1, sort, category)
-  };
+  next.onclick = () => getProducts(page + 1, sort, category);
+  previous.onclick = () => getProducts(page - 1, sort, category);
+  last.onclick = () => getProducts(maxPages, sort, category);
+  first.onclick = () => getProducts(1, sort, category);
 
   document.getElementById('page').onblur = function () {
-    getProducts(parseInt(this.value), sort, category)
+    getProducts(parseInt(this.value), sort, category);
   };
 }
 
-document.querySelector('.filters button').onclick = function () {
-  renderFilters();
-}
-
-document.querySelector('.filter-footer button').onclick = function () {
-  applyFilters();
-}
+ucFirst = (word) => word.charAt(0).toUpperCase() + word.slice(1);
 
 getProducts();
+document.querySelector('.filters button').onclick = () => renderFilters();
+

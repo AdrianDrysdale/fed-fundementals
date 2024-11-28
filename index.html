@@ -66,7 +66,7 @@
         <button class="secondary"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-list-tree" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6h11" /><path d="M12 12h8" /><path d="M15 18h5" /><path d="M5 6v.01" /><path d="M8 12v.01" /><path d="M11 18v.01" /></svg>Filters</button>
         <div class="totals"></div>
       </div>
-      <div id="applied-filters"></div>
+      <div id="filter-chips"></div>
       <table>
         <thead>
           <tr>
@@ -155,14 +155,20 @@
       <div class="modal-content">
         <div class="filter-header">
           <p>Filters</p>
-          <span id="close-filters">&times;</span>
+          <span id="close-filters">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-x">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <path d="M18 6l-12 12" />
+              <path d="M6 6l12 12" />
+            </svg>
+          </span>
         </div>
         <div class="filter-middle">
           <p>Category</p>
           <div id="filter-list"></div>
         </div>
         <div class="filter-footer">
-          <button class=primary">Apply filters</button>
+          <button disabled>Apply filters</button>
         </div>
       </div>
     </div>

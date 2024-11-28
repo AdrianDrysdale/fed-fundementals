@@ -6,7 +6,7 @@
   --grey-600: #646464;
   --grey-500: #898989;
   --grey-300: #D5D5D5;
-  --grey-200: #eaeae;
+  --grey-200: #EAEAEA;
   --grey-100: #f2f2f2;
   --teal-900: #029FB4;
   --blue-500: #2943E5;
@@ -188,54 +188,199 @@ button:hover {
   border: 1px solid var(--grey-300);
 }
 
+.checkbox {
+  display: block;
+  position: relative;
+  padding-left: 26px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  border: 1px solid var(--grey-600);
+}
+
+.checkbox:hover input ~ .checkmark {
+  background-color: var(--grey-100);
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox input:checked ~ .checkmark {
+  background-color: var(--navy-900);
+  border-color: var(--navy-900);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkbox .checkmark:after {
+  left: 4px;
+  top: 0;
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
 .modal {
   display: none;
   position: fixed;
   z-index: 1;
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(72,72,72);
+  background-color: rgba(72,72,72,0.9);
 }
 
 .modal-content {
   position: fixed;
   right: 0;
   margin: auto;
-  width: 25%;
-  height: 100%;
+  width: 360px;
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   background-color: white;;
 }
 
 .filter-header {
-  height: 10%;
+  padding-left: 48px;
+  padding-right: 24px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  font-weight: var(--medium);
+  box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.15);
+
+  & p {
+    text-align: center;
+    width: 100%;
+  }
+
+  & span {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+  }
 }
 
 .filter-middle {
-  height: 80%;
-  border-bottom: 1px solid var(--navy-800);
+  padding-left: 24px;
+  padding-right: 24px;
+  box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.15);
+
+  & p {
+    font-weight: var(--medium);
+  }
+
+  & ul {
+    margin: 0;
+    padding: 0;
+  }
 }
 
 .filter-footer {
-  height: 8%;
+  margin-left: 24px;
+  margin-right: 24px;
+  height: 72px;
   display: flex;
   justify-content: center;
   align-items: center;
 
   & button {
-    width: 90%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-content: center;
   }
+
+  & button:disabled {
+    cursor: not-allowed;
+    background-color: var(--grey-100);
+    color: var(--grey-900);
+    border: 1px solid var(--grey-300);
+  }
 }
 
-.applied-filter {
-  display: flex;
-  align-items: center;
+#filter-chips {
+  margin-left: 24px;
+  margin-top: 8px;
+
+  & .chip {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--grey-100);
+    padding-left: 12px;
+    padding-right: 6px;
+    border-radius: 8px;
+    height: 32px;
+    font-size: 0.875rem;
+
+    & p {
+      margin: 0;
+      color: var(--grey-900);
+      padding-right: 1em;
+
+      & .categorized-chip {
+        font-weight: var(--medium);
+      }
+    }
+
+    & .clear-filter {
+      width: 20px;
+      height: 20px;
+
+      & .icon-tabler-x {
+        color: var(--grey-500);
+        font-weight: var(--normal);
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    & .clear-filter:hover {
+      cursor: pointer;
+    }
+  }
+
+  & .chip:hover {
+    background-color: var(--grey-300);
+  }
 }
+
+
 
 
