@@ -339,6 +339,18 @@ button:hover {
   margin-left: 24px;
   margin-top: 8px;
 
+  & a {
+    margin-left: 8px;
+    text-decoration: none;
+    color: var(--blue-500);
+    font-size: 1rem;
+  }
+
+  & a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
   & .chip {
     display: inline-flex;
     align-items: center;
@@ -348,6 +360,7 @@ button:hover {
     border-radius: 8px;
     height: 32px;
     font-size: 0.875rem;
+    margin-right: 8px;
 
     & p {
       margin: 0;
