@@ -1,8 +1,8 @@
-.nav-h2 {
-  height: 64px;
+.menu {
+  height: 4rem;
   display: flex;
   align-items: center;
-  margin: 0 48px;
+  margin: 0 3rem;
 
   & nav {
     display: flex;
@@ -10,20 +10,18 @@
     align-items: center;
   }
 
-  & svg {
-    padding-right: 16px;
-    border-right: var(--grey-500) 1px solid;
+  & img {
+    padding-right: 1rem;
     margin-right: 2px;
+    border-right: var(--grey-500) 1px solid;
   }
 
   & ul {
     display: inline-flex;
-    padding: 0;
-    margin: 0;
     height: 100%;
 
     & li {
-      font-size: 1rem;
+      font-size: var(--base);
       font-weight: var(--medium);
       color: var(--navy-900);
       border-top: 4px solid transparent;
@@ -34,10 +32,10 @@
 
     & a {
       text-decoration: none;
-      font-size: 1rem;
+      font-size: var(--base);
       font-weight: var(--medium);
       color: var(--navy-900);
-      padding: 0.5em 0.875em;
+      padding: 0.5rem 0.875rem;
     }
 
     & a:hover {
@@ -45,14 +43,14 @@
       border-radius: 8px;
     }
 
-    & li.nav-h2-h1-selected a {
-      font-size: 1.25rem;
+    & li.menu--selected a {
+      font-size: var(--large);
       font-weight: bold;
       display: flex;
       align-items: center;
     }
 
-    & li.nav-h2-active {
+    & li.menu--active {
       border-bottom: var(--teal-900) 4px solid;
     }
   }
@@ -66,33 +64,33 @@
   }
 
   @media (max-width: 904px) {
-    margin: 0 2em;
+    margin: 0 2rem;
   }
 
   @media (max-width: 599px) {
-    margin: 0 1em;
+    margin: 0 1rem;
 
-    & svg {
+    & img {
       display: none;
     }
 
     & ul {
       & a {
-        padding: 1em 0.125em;
+        padding: 1rem 0.125rem;
       }
     }
   }
 }
 
-.nav-h3 {
-  height: 48px;
+.sub-menu {
+  height: 3rem;
   background-color: var(--navy-800);
   display: flex;
 
   & ul {
     display: inline-flex;
     padding: 0;
-    margin: 0 46px;
+    margin: 0 2.875rem;
 
     & li {
       font-size: 1rem;
@@ -103,7 +101,7 @@
       border-bottom: 4px solid transparent;
     }
 
-    & li.nav-h3-active {
+    & li.sub-menu--active {
       border-bottom: var(--teal-900) 4px solid;
     }
 
@@ -127,12 +125,13 @@
   & a {
     text-decoration: none;
     color: var(--white);
-    padding: 0.5em 1em;
+    padding: 0.5rem 1rem;
   }
 
   & a:hover {
+    text-decoration: none;
     background-color: var(--navy-600);
-    border-radius: 0.5em;
+    border-radius: 0.5rem;
   }
 }
 
@@ -140,12 +139,12 @@
   align-items: center;
   margin-left: auto;
   display: flex;
-  font-size: 1rem;
+  font-size: var(--base);
   font-weight: var(--medium);
 }
 
 .website {
-  margin-right: 10px;
+  margin-right: 0.625rem;
 
   @media (max-width: 904px) {
     display: none;
